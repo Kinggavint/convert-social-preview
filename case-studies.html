@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .case-studies-hero {
-      padding: 7rem 1.5rem 5rem;
+      padding: 7rem 1.5rem 4rem;
       text-align: center;
     }
 
@@ -43,8 +43,25 @@
       margin: 0 auto;
     }
 
+    .case-studies-hero__image-wrap {
+      max-width: 840px;
+      margin: 2.5rem auto 0;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -15px rgba(15, 30, 60, 0.15);
+      border: 1px solid rgba(127, 127, 127, 0.2);
+      background: #ffffff;
+    }
+
+    .case-studies-hero__image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
     .case-studies-section {
-      padding: 4rem 1.5rem 7rem;
+      padding: 3rem 1.5rem 7rem;
     }
 
     .case-studies__header {
@@ -196,6 +213,10 @@
         <span class="case-studies-hero__eyebrow">Our work</span>
         <h1 id="case-studies-title">Ideas turned into measurable results</h1>
         <p>Explore how thoughtful strategy, focused execution, and close collaboration help our clients overcome challenges and create lasting impact.</p>
+        
+        <div class="case-studies-hero__image-wrap">
+          <img src="/uploads/onboarding-edit/2d21dc5e-d585-4223-a1b2-39bb7c48ba54/case-studies-hero.png" alt="Cartoon characters looking at social media preview analytics and card designs" width="1200" height="630" loading="eager">
+        </div>
       </div>
     </section>
 

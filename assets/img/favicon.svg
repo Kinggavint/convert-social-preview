@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" role="img" aria-label="Convert Social logo">
   <title>Convert Social logo</title>
-  <rect x="2" y="3" width="28" height="22" rx="7" fill="#4F46E5"/>
-  <path d="M11 25v4.5L16.5 25" fill="#4F46E5"/>
+  <rect x="2" y="3" width="28" height="22" rx="7" fill="#0F1E3C"/>
+  <path d="M11 25v4.5L16.5 25" fill="#0F1E3C"/>
   <path d="M10 18.5l4.2-4.4 3.1 2.8L22.5 11" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M18.6 11h3.9v3.9" stroke="#F97316" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.6 11h3.9v3.9" stroke="#F27021" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

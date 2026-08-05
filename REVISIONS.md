@@ -1,5 +1,15 @@
 # Convert Social Proof Site - Open Items and Placeholders
 
+## Change log
+
+### v2, 2026-08-05 - rebuilt on client brand imagery
+- The palette was rebuilt from the twelve images the client uploaded at onboarding. Navy `#0F1E3C`, orange `#F27021`, and warm cream `#FAF6F0` replace the indigo and coral used in v1. Charcoal `#1A1F2E` carries body copy and muted grey `#5A6478` carries secondary lines.
+- All twelve client images are now in use across the five pages. See the Assets table in `README.md` for the placement of each one.
+- The header and footer logo mark was recoloured from indigo and coral to navy and orange, in the inline SVG on all five pages and in `assets/img/logo.svg` and `assets/img/favicon.svg`.
+- `assets/img/og-image.svg` was replaced by a real 1200x630 `assets/img/og-image.png`, rendered from client image 12 with the headline composited in Plus Jakarta Sans. All five pages now point at the PNG.
+- Copy did not change. Every headline, service description, FAQ answer, pricing line, and testimonial quote is identical to v1, including the three verbatim quotes.
+- The position based scroll reveal and its four second failsafe are unchanged.
+
 Everything below needs client input or a decision before this proof becomes a production site. Items are grouped by urgency.
 
 ## 1. Blocking before launch
@@ -28,21 +38,23 @@ Everything below needs client input or a decision before this proof becomes a pr
 ## 2. Assets to replace
 
 ### 2.1 Open Graph and Twitter share image
-- **Placeholder used:** `assets/img/og-image.svg`, a generated 1200x630 gradient card with the headline in text
-- **Why it needs replacing:** Facebook, LinkedIn, and X do not reliably render SVG for share previews. They expect PNG or JPG.
-- **Needed:** A 1200x630 PNG or JPG at `assets/img/og-image.png`, then update the `og:image` and `twitter:image` tags on all five pages. Brand-approved artwork preferred over the generated placeholder.
+- **Current state:** `assets/img/og-image.png`, a real 1200x630 PNG. The base layer is client image 12, the orange to navy gradient mesh, with a navy scrim and the headline "Consistency Is Key, At a Price You Can Afford" composited in white Plus Jakarta Sans. All five pages reference it in `og:image` and `twitter:image`.
+- **Why it may still be revised:** The artwork is assembled from a client background plus generated type, not a share card designed as a share card. Facebook, LinkedIn, and X now render it correctly, so this is no longer blocking.
+- **Needed if desired:** Confirm the current card is acceptable, or supply a purpose-designed 1200x630 PNG with final brand typography and any tagline the client prefers.
 
 ### 2.2 Favicon
 - **Placeholder used:** `assets/img/favicon.svg`, the same geometric mark as `logo.svg`
 - **Needed:** Confirm the mark is acceptable, or supply the official Convert Social logo. For broad browser support also add a 32x32 `favicon.ico` and a 180x180 `apple-touch-icon.png`, then add the matching `link` tags.
 
 ### 2.3 Logo
-- **Placeholder used:** A generated geometric mark, a rounded speech bubble containing an upward trend arrow, in indigo with a coral arrow head. Used inline in the header and footer and as `assets/img/logo.svg`.
+- **Current state:** A geometric mark, a rounded speech bubble containing an upward trend arrow, recoloured in v2 to the client palette: navy `#0F1E3C` bubble with an orange `#F27021` arrow head, and a white bubble with the same orange arrow in the footer where it sits on navy. Used inline in the header and footer of all five pages and as `assets/img/logo.svg` and `assets/img/favicon.svg`.
+- **Why it may still be revised:** The colours now come from the client imagery, but the mark itself is still a build-time design rather than a supplied brand asset.
 - **Needed:** The official Convert Social logo files if one exists. If not, confirm whether this mark should be developed into the real identity.
 
-### 2.4 Photography
-- **Current state:** No photographs anywhere on the site. All testimonial and client identities use initials in colored circles. No image of Abbie Green is used, and the founder section uses an `AG` monogram tile.
-- **Needed if desired:** A headshot of Abbie Green for the founder section, and optionally client headshots for the testimonial cards. Client photos require written permission from each person. Until permission exists, keep the initial avatars.
+### 2.4 Photography and illustration
+- **Current state:** All imagery on the site comes from the twelve PNGs the client uploaded at onboarding. That includes the photographic desk flat lay in the home hero, the three client-type photographs in the testimonials banner, the illustrated team in the founder section, and the icon sets, growth chart, badge, and background textures. Nothing is stock and nothing is generated art. Testimonial and client identities still use initials in coloured circles, and no photograph of Abbie Green appears anywhere.
+- **Needed if desired:** A real headshot of Abbie Green could replace the illustrated team image in the founder section on `index.html`. Optional client headshots for the testimonial cards would need written permission from each person, so until permission exists the initial avatars stay.
+- **Needed for the client photo triptych:** Confirm the three people shown in `06-client-type-triptych.png` are cleared for use on the production site, since the section sits directly above named testimonials and a visitor may read the two as connected.
 
 ## 3. Content decisions
 
@@ -94,7 +106,7 @@ Everything below needs client input or a decision before this proof becomes a pr
 
 ## 5. Verified compliance state at handoff
 
-Confirmed by grep across all files in `proof/`:
+Confirmed by grep across every text file in `proof/` after the v2 rebuild. Binary image assets are excluded from the grep because byte patterns produce false positives.
 
 | Rule | Count |
 | --- | --- |
@@ -111,8 +123,9 @@ Notes on the vendor mention check: no build agency, AI tool, or vendor branding 
 
 ## 6. Known non-blocking items
 
-- `assets/img/` holds SVG only, by design. No raster assets are shipped.
-- The generated `og-image.svg` references Plus Jakarta Sans by name. If the image is rasterized outside a browser that has the font, the text will fall back to a system sans-serif. Replacing it with a real PNG resolves this.
+- `assets/img/` holds the twelve client PNGs, the 1200x630 `og-image.png`, and two SVG marks. Client images were resized for web delivery and the three cutouts were given transparent backgrounds. No other processing was applied.
+- The growth chart in `08-growth-chart-infographic.png` carries fabricated figures. It is captioned directly below the image, in muted grey, as an illustrative growth pattern with results varying per client and platform. Do not present it as client data.
 - The scroll reveal is position based rather than observer based. Sections are visible by default in CSS and are only hidden once the script confirms it is running, they are revealed on any scroll or resize including instant anchor jumps, reduced motion shows everything immediately, and a four second failsafe reveals anything still hidden. A script failure can never blank out a section.
+- Orange is never used as small text on cream. Orange text on light surfaces uses `#A63F08`, and the brand orange `#F27021` appears as a fill behind navy text or as large or decorative elements only.
 - `sitemap.xml` has `lastmod` set to the build date, 2026-08-05. Regenerate it on the next content change.
 - The site is served from a GitHub Pages subpath during review. All internal links are relative, so they resolve correctly on both the subpath and a future root domain. The absolute URLs in canonicals, Open Graph tags, sitemap, and schema are the only values tied to the domain, and all are listed in item 1.3.

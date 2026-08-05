@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore our case studies and discover the strategies, solutions, and measurable results behind our work.">
+  <title>Case Studies</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .case-studies-hero {
+      padding: 7rem 1.5rem 5rem;
+      text-align: center;
+    }
+
+    .case-studies-hero__content,
+    .case-studies {
+      width: min(1120px, 100%);
+      margin-inline: auto;
+    }
+
+    .case-studies-hero__eyebrow,
+    .case-study-card__category {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .case-studies-hero h1 {
+      max-width: 800px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .case-studies-hero p {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .case-studies-section {
+      padding: 4rem 1.5rem 7rem;
+    }
+
+    .case-studies__header {
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    .case-studies__header h2 {
+      margin-bottom: 0.75rem;
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 1.5rem;
+    }
+
+    .case-study-card {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid rgba(127, 127, 127, 0.25);
+      border-radius: 1rem;
+      background: var(--card-background, #fff);
+    }
+
+    .case-study-card__media {
+      display: grid;
+      min-height: 210px;
+      place-items: center;
+      padding: 2rem;
+      background: var(--case-study-accent, #eef2ff);
+    }
+
+    .case-study-card__media span {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+    }
+
+    .case-study-card__content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.75rem;
+    }
+
+    .case-study-card__content h3 {
+      margin: 0 0 0.75rem;
+    }
+
+    .case-study-card__content p {
+      margin: 0 0 1.5rem;
+    }
+
+    .case-study-card__results {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+      margin: auto 0 1.5rem;
+      padding: 1rem 0;
+      border-block: 1px solid rgba(127, 127, 127, 0.2);
+    }
+
+    .case-study-card__result {
+      flex: 1;
+    }
+
+    .case-study-card__result strong,
+    .case-study-card__result span {
+      display: block;
+    }
+
+    .case-study-card__result strong {
+      font-size: 1.25rem;
+    }
+
+    .case-study-card__result span {
+      margin-top: 0.2rem;
+      font-size: 0.8rem;
+    }
+
+    .case-study-card__link {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .case-study-card__link:hover,
+    .case-study-card__link:focus-visible {
+      text-decoration: underline;
+    }
+
+    .case-studies-empty {
+      padding: 3rem;
+      border: 1px dashed rgba(127, 127, 127, 0.4);
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .case-studies-hero {
+        padding-top: 5rem;
+      }
+
+      .case-study-card__results {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html" aria-label="Home">Home</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="case-studies.html" aria-current="page">Case Studies</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-studies-hero" aria-labelledby="case-studies-title">
+      <div class="case-studies-hero__content">
+        <span class="case-studies-hero__eyebrow">Our work</span>
+        <h1 id="case-studies-title">Ideas turned into measurable results</h1>
+        <p>Explore how thoughtful strategy, focused execution, and close collaboration help our clients overcome challenges and create lasting impact.</p>
+      </div>
+    </section>
+
+    <section class="case-studies-section" aria-labelledby="featured-case-studies">
+      <div class="case-studies">
+        <header class="case-studies__header">
+          <h2 id="featured-case-studies">Featured case studies</h2>
+          <p>Each project highlights the challenge, our approach, and the outcomes achieved. More stories will be added as our work grows.</p>
+        </header>
+
+        <!-- Add future case studies by duplicating an article below and updating its content. -->
+        <div class="case-studies-grid">
+          <article class="case-study-card">
+            <div class="case-study-card__media" style="--case-study-accent: #e8f1ff;" aria-hidden="true">
+              <span>Growth</span>
+            </div>
+            <div class="case-study-card__content">
+              <span class="case-study-card__category">Digital strategy</span>
+              <h3>Building a clearer path from discovery to conversion</h3>
+              <p>A streamlined digital experience helped turn complex information into a simple, customer-focused journey.</p>
+              <div class="case-study-card__results" aria-label="Project results">
+                <div class="case-study-card__result">
+                  <strong>42%</strong>
+                  <span>More engagement</span>
+                </div>
+                <div class="case-study-card__result">
+                  <strong>2.1×</strong>
+                  <span>Conversion lift</span>
+                </div>
+              </div>
+              <a class="case-study-card__link" href="#" aria-label="Read the digital strategy case study">Read case study <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="case-study-card">
+            <div class="case-study-card__media" style="--case-study-accent: #e8f8ef;" aria-hidden="true">
+              <span>Launch</span>
+            </div>
+            <div class="case-study-card__content">
+              <span class="case-study-card__category">Brand experience</span>
+              <h3>Launching a brand designed for its next stage</h3>
+              <p>A flexible identity and cohesive launch system gave a growing organization the confidence to reach a wider audience.</p>
+              <div class="case-study-card__results" aria-label="Project results">
+                <div class="case-study-card__result">
+                  <strong>3 weeks</strong>
+                  <span>To market</span>
+                </div>
+                <div class="case-study-card__result">
+                  <strong>68%</strong>
+                  <span>More inquiries</span>
+                </div>
+              </div>
+              <a class="case-study-card__link" href="#" aria-label="Read the brand experience case study">Read case study <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="case-study-card">
+            <div class="case-study-card__media" style="--case-study-accent: #fff1e5;" aria-hidden="true">
+              <span>Scale</span>
+            </div>
+            <div class="case-study-card__content">
+              <span class="case-study-card__category">Process improvement</span>
+              <h3>Creating a system that grows with the team</h3>
+              <p>Reusable tools and a simplified workflow reduced repetitive work while improving consistency across every touchpoint.</p>
+              <div class="case-study-card__results" aria-label="Project results">
+                <div class="case-study-card__result">
+                  <strong>25 hrs</strong>
+                  <span>Saved monthly</span>
+                </div>
+                <div class="case-study-card__result">
+                  <strong>35%</strong>
+                  <span>Faster delivery</span>
+                </div>
+              </div>
+              <a class="case-study-card__link" href="#" aria-label="Read the process improvement case study">Read case study <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026. All rights reserved.</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="case-studies.html">Case Studies</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

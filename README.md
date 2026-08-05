@@ -20,8 +20,19 @@ Static proof site for **Convert Social**, a done-for-you social media management
 | `index.html` | Home. Hero, value props, audience, testimonial highlights, founder blurb, FAQ, closing CTA |
 | `how-it-works.html` | Five-step process, what we handle, what the client provides, full FAQ |
 | `pricing.html` | Single plan card at $200 per month, in house comparison table, what is included |
+| `case-studies.html` | Case study index for client results, project summaries, and links to detailed case studies |
 | `testimonials.html` | Three verbatim client testimonials, additional client strip, case notes |
 | `contact.html` | Contact form, alternate contact methods, closing CTA |
+
+## Adding future case studies
+
+1. Add a new case study card or section to `case-studies.html`, following the existing markup and heading structure.
+2. Use verified client details and results only. Include context, the work completed, and the outcome where that information is available.
+3. Add supporting images to `assets/img/` with descriptive, lowercase file names and meaningful alternative text.
+4. For a longer case study, create a separate HTML page from an existing interior-page template and link it from the card on `case-studies.html`.
+5. Add the new detail page to the header and footer only if it should be a primary navigation destination. Otherwise, keep the main `Case Studies` navigation link pointed at `case-studies.html`.
+6. Add any new public page to `sitemap.xml`, include appropriate metadata and structured data, and test desktop and mobile navigation.
+7. Update the Pages, Structure, Assets, and Structured data sections in this README when applicable.
 
 ## Tech stack
 
@@ -39,6 +50,7 @@ proof/
   index.html
   how-it-works.html
   pricing.html
+  case-studies.html
   testimonials.html
   contact.html
   assets/
@@ -94,8 +106,8 @@ All twelve images in `assets/img/` were uploaded by the client at onboarding. No
 | `08-growth-chart-infographic.png` | Home client results panel, captioned as an illustrative pattern rather than client data |
 | `09-introductory-rate-badge.png` | Pricing card floating badge, rotated 6 degrees, decorative only |
 | `10-scheduled-phone-checklist.png` | How It Works process aside beside the five steps |
-| `11-navy-network-background.png` | Footer background on all five pages |
-| `12-orange-navy-gradient-mesh.png` | CTA band background on all five pages, and the base of `og-image.png` |
+| `11-navy-network-background.png` | Footer background on all six pages |
+| `12-orange-navy-gradient-mesh.png` | CTA band background on all six pages, and the base of `og-image.png` |
 
 Backgrounds carry a translucent scrim so foreground text keeps AA contrast. The three cutout PNGs (03, 05, 09) have transparent backgrounds so they sit on the cream surface. `og-image.png` is a 1200x630 render of image 12 with the site headline composited in white Plus Jakarta Sans.
 
@@ -106,6 +118,7 @@ Backgrounds carry a translucent scrim so foreground text keeps AA contrast. The 
 | `index.html` | Organization, Service, FAQPage, Review x3 |
 | `how-it-works.html` | Organization, FAQPage, BreadcrumbList |
 | `pricing.html` | Organization, Service, BreadcrumbList, Review |
+| `case-studies.html` | Organization, BreadcrumbList |
 | `testimonials.html` | Organization, BreadcrumbList, Review x3 |
 | `contact.html` | Organization, BreadcrumbList |
 

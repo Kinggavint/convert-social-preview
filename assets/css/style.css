@@ -830,8 +830,10 @@ svg { display: block; }
 }
 
 /* ------------------------------------------------------------ reveal */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* Content is visible by default. Only a page with JS running hides it for the
+   reveal transition, so a script failure can never blank out a section. */
+.js-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js-ready .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -840,7 +842,7 @@ svg { display: block; }
     animation-iteration-count: 1;
     transition-duration: 0.001ms;
   }
-  .reveal { opacity: 1; transform: none; }
+  .js-ready .reveal { opacity: 1; transform: none; }
   .btn:hover, .card--hover:hover { transform: none; }
 }
 

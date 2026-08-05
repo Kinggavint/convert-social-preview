@@ -57,30 +57,62 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
-  /* ---------------------------------------------- scroll reveal */
+  /* ---------------------------------------------- scroll reveal
+     Position based rather than observer based, so that instant scroll jumps
+     and in page anchor links can never leave a section stuck hidden. */
   function initReveal() {
-    var items = document.querySelectorAll(".reveal");
+    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
     if (items.length === 0) {
       return;
     }
-    if (reduceMotion === true || typeof window.IntersectionObserver === "undefined") {
-      Array.prototype.forEach.call(items, function (el) {
+
+    function showAll() {
+      items.forEach(function (el) {
         el.classList.add("is-visible");
       });
+      items = [];
+    }
+
+    if (reduceMotion === true) {
+      showAll();
       return;
     }
-    var observer = new window.IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting === true) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
 
-    Array.prototype.forEach.call(items, function (el) {
-      observer.observe(el);
-    });
+    var ticking = false;
+
+    function check() {
+      ticking = false;
+      var limit = window.innerHeight * 0.94;
+      items = items.filter(function (el) {
+        if (el.getBoundingClientRect().top < limit) {
+          el.classList.add("is-visible");
+          return false;
+        }
+        return true;
+      });
+      if (items.length === 0) {
+        window.removeEventListener("scroll", queue);
+        window.removeEventListener("resize", queue);
+      }
+    }
+
+    function queue() {
+      if (ticking === false) {
+        ticking = true;
+        window.requestAnimationFrame(check);
+      }
+    }
+
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    check();
+
+    /* Failsafe: nothing stays hidden for longer than a few seconds. */
+    window.setTimeout(function () {
+      if (items.length > 0) {
+        check();
+      }
+    }, 4000);
   }
 
   /* ---------------------------------------------- contact form stub */
@@ -108,6 +140,8 @@
       node.textContent = String(new Date().getFullYear());
     });
   }
+
+  document.documentElement.classList.add("js-ready");
 
   document.addEventListener("DOMContentLoaded", function () {
     initNav();

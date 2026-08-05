@@ -113,6 +113,6 @@ Notes on the vendor mention check: no build agency, AI tool, or vendor branding 
 
 - `assets/img/` holds SVG only, by design. No raster assets are shipped.
 - The generated `og-image.svg` references Plus Jakarta Sans by name. If the image is rasterized outside a browser that has the font, the text will fall back to a system sans-serif. Replacing it with a real PNG resolves this.
-- The scroll reveal uses `IntersectionObserver` with a graceful fallback that shows all content immediately if the API is missing or if reduced motion is requested, so no content is ever hidden by script failure.
+- The scroll reveal is position based rather than observer based. Sections are visible by default in CSS and are only hidden once the script confirms it is running, they are revealed on any scroll or resize including instant anchor jumps, reduced motion shows everything immediately, and a four second failsafe reveals anything still hidden. A script failure can never blank out a section.
 - `sitemap.xml` has `lastmod` set to the build date, 2026-08-05. Regenerate it on the next content change.
 - The site is served from a GitHub Pages subpath during review. All internal links are relative, so they resolve correctly on both the subpath and a future root domain. The absolute URLs in canonicals, Open Graph tags, sitemap, and schema are the only values tied to the domain, and all are listed in item 1.3.
